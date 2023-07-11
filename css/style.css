@@ -1,0 +1,39 @@
+:root{
+    --text: #0e0c13;
+    --background: #f9f9fb;
+    --primary: #d2bdd6;
+    --secondary: #ecdfe8;
+    --accent: #d6bdce;
+}
+
+body{
+    background: var(--background);
+    color: var(--text);
+    font-family: 'Poppins', sans-serif;;
+}
+
+#index{
+    background-image: url(../assets/index-bg.svg);
+    background-position: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100%;
+}
+
+.glass{
+    background: rgba( 255, 255, 255, 0.15 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+
+.glossy{
+    background: rgba( 255, 255, 255, 0.4 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 20px );
+    -webkit-backdrop-filter: blur( 20px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
