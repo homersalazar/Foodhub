@@ -14,9 +14,10 @@ body{
 
 #index{
     background-image: url(../assets/index-bg.svg);
-    background-position: cover;
+    background-size: cover;
     background-repeat: no-repeat;
-    height: 100vh;
+    /* height: 100vh !important; */
+    height: 100%;
     width: 100%;
 }
 
