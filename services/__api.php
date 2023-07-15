@@ -40,6 +40,26 @@
             }
         }
 
+        public function getAllAreas() {
+            $url = $this->apiUrl . "list.php?a=list";
+            $response = file_get_contents($url);
+    
+            if ($response !== false) {
+                $data = json_decode($response, true);
+                $areas = $data['meals'];
+    
+                // Extract area names into a separate array
+                // $areaNames = array();
+                // foreach ($areas as $area) {
+                //     $areaNames[] = $area['strArea'];
+                // }
+    
+                return $areas;
+            } else {
+                return null;
+            }
+        }
+
         public function getMealById($id) {
             $url = $this->apiUrl . "lookup.php?i=$id";
             $response = file_get_contents($url);
@@ -53,7 +73,22 @@
                 return null;
             }
         }        
-    
+
+        public function getMealsByCategory($category) {
+            $url = $this->apiUrl . "filter.php?c=" . urlencode($category);
+            $response = file_get_contents($url);
+            
+            if ($response !== false) {
+                $data = json_decode($response, true);
+                $meals = $data['meals'];
+
+                return $meals;
+            } else {
+                return null;
+            }
+        }
+
+        
         private function parseMealData($mealData) {
             $this->mealId = $mealData['idMeal'];
             $this->mealName = $mealData['strMeal'];
@@ -62,22 +97,23 @@
             $this->mealYoutube = $mealData['strYoutube'];
             $this->mealArea = $mealData['strArea'];
             $this->mealInstructions = $mealData['strInstructions'];
-
-             // Parse ingredients and store them in an array
+        
+            // Parse ingredients and store them in an array
             $this->mealIngredients = array();
             $this->mealMeasures = array();
             for ($i = 1; $i <= 20; $i++) {
                 $ingredient = $mealData['strIngredient' . $i];
                 $measure = $mealData['strMeasure' . $i];
-                
+        
                 // Check if the ingredient exists and is not empty
                 if ($ingredient && $measure) {
                     $this->mealIngredients[] = $ingredient;
                     $this->mealMeasures[] = $measure;
                 }
-                
             }
         }
+        
+        
     }
 
 ?>

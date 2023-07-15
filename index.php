@@ -62,7 +62,7 @@
                                     <a href="./index.php" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-[var(--primary)] md:hover:text-white md:p-0">Home</a>
                                 </li>
                                 <li>
-                                    <a href="#" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-[var(--primary)] md:hover:bg-transparent md:hover:text-white md:p-0">Recipes</a>
+                                    <a href="./pages/recipe.php" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-[var(--primary)] md:hover:bg-transparent md:hover:text-white md:p-0">Recipes</a>
                                 </li>
                                 <li>
                                     <a href="#" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-[var(--primary)] md:hover:bg-transparent md:hover:text-white md:p-0">Contact</a>
@@ -103,13 +103,13 @@
                         <div class="swipers">
                             <div class="swiper-wrapper">
                                 <?php 
-                                        $mealDB = new MealDB();
+                                        // $mealDB = new MealDB();
                                         $categories = $mealDB->getAllCategories();
                                         if ($categories !== null) {
                                             foreach ($categories as $category) {                  
                                 ?>
                                     <div class="swiper-slide">
-                                        <a href="#" class="block max-w-md p-12 glass bg-contain bg-no-repeat bg-center border border-gray-200 rounded-lg shadow" style="background-image: url('<?=$category['strCategoryThumb'] ?>');">
+                                        <a href="./pages/category.php?category=<?=$category['strCategory'] ?>" class="block max-w-md p-12 glass bg-contain bg-no-repeat bg-center border border-gray-200 rounded-lg shadow" style="background-image: url('<?=$category['strCategoryThumb'] ?>');">
                                             <div class="grid gap-5 absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-center">
                                             <p class="text-white font-bold"><?=$category['strCategory'] ?></p>
                                             </div>
