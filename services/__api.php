@@ -47,13 +47,7 @@
             if ($response !== false) {
                 $data = json_decode($response, true);
                 $areas = $data['meals'];
-    
-                // Extract area names into a separate array
-                // $areaNames = array();
-                // foreach ($areas as $area) {
-                //     $areaNames[] = $area['strArea'];
-                // }
-    
+
                 return $areas;
             } else {
                 return null;
@@ -88,7 +82,45 @@
             }
         }
 
+        public function getAllMeals() {
+            $url = $this->apiUrl . "search.php?s=";
+            $response = file_get_contents($url);
+            
+            if ($response !== false) {
+                $data = json_decode($response, true);
+                $meals = $data['meals'];
+                
+                return $meals;
+            } else {
+                return null;
+            }
+        }
+
+        public function searchMeals($query) {
+            $url = $this->apiUrl . "search.php?s=" . urlencode($query);
+            $response = file_get_contents($url);
         
+            if ($response !== false) {
+                $data = json_decode($response, true);
+        
+                // Check if the JSON decoding was successful and "meals" key exists
+                if (is_array($data) && isset($data['meals'])) {
+                    $meals = $data['meals'];
+                    foreach ($meals as $meal) {
+                        $this->parseMealData($meal);
+                    }
+                    return $meals;
+                } else {
+                    return null;
+                }
+            } else {
+                return null;
+            }
+        }
+      
+        
+        
+
         private function parseMealData($mealData) {
             $this->mealId = $mealData['idMeal'];
             $this->mealName = $mealData['strMeal'];

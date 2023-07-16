@@ -15,7 +15,7 @@
             </a>
         </div>
         <div class="grid place-items-center py-12">
-            <div class="block max-w-sm p-1 glossy border border-gray-200 rounded-lg shadow">
+            <div class="block max-w-md p-2 border rounded-lg shadow">
                 <img class="w-64 h-64  bg-no-repeat bg-contain" src="<?=$mealDB->mealThumb ?>" alt="">
             </div>
         </div>
@@ -46,25 +46,25 @@
             </div>
         </section>
 
-        <div class="instruction-section max-sm:p-0">
-    <h1 class="font-bold text-2xl mb-4 p-4 max-sm:p-2">Recipe</h1>
-    <div class="bg-white rounded-lg shadow-lg p-4 mb-8 max-sm:p-4">
-        <ol class="pl-6 max-sm:pl-4">
-            <?php
-                $steps = explode("\r\n", $mealDB->mealInstructions);
-                $count = 1; // Variable to keep track of the count
-                foreach ($steps as $step) {
-                    if (!empty(trim($step))) {
-            ?>
-                <li class="mb-4 leading-relaxed">Step <?= $count ?>: <?= $step ?></li>
-            <?php
-                        $count++; // Increment the count
-                    }
-                }
-            ?>
-        </ol>
-    </div>
-</div>
+        <div class="instruction-section px-8 max-sm:p-4">
+            <h1 class="font-bold text-2xl py-6 max-sm:p-2">Recipe</h1>
+            <div class="rounded-lg shadow-lg  mb-8 max-sm:p-2">
+                <ol class="pl-6 max-sm:pl-4">
+                    <?php
+                        $steps = explode("\r\n", $mealDB->mealInstructions);
+                        $count = 1; // Variable to keep track of the count
+                        foreach ($steps as $step) {
+                            if (!empty(trim($step))) {
+                    ?>
+                        <li class="mb-4 leading-relaxed">Step <?= $count ?>: <?= $step ?></li>
+                    <?php
+                                $count++; // Increment the count
+                            }
+                        }
+                    ?>
+                </ol>
+            </div>
+        </div>
 
 
 

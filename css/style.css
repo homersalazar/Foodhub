@@ -1,9 +1,9 @@
 :root{
-    --text: #0e0c13;
-    --background: #f9f9fb;
-    --primary: #d2bdd6;
-    --secondary: #ecdfe8;
-    --accent: #d6bdce;
+    --text: #fbfbfe;
+    --background: #0b0a24;
+    --primary: #544ed0;
+    --secondary: #100e34;
+    --accent: #4942cd;
 }
 
 body{
@@ -16,7 +16,6 @@ body{
     background-image: url(../assets/index-bg.svg);
     background-size: cover;
     background-repeat: no-repeat;
-    /* height: 100vh !important; */
     height: 100%;
     width: 100%;
 }
