@@ -19,13 +19,13 @@
             if (isset($meals)) {
                 foreach ($meals as $meal) {
         ?>
-            <div class="w-full max-w-sm bg-black border border-gray-200 rounded-lg shadow">
+            <div class="w-full max-w-sm border bg-[var(--secondary)] rounded-lg shadow">
                 <a href="#">
                     <img class="p-1 rounded-t-lg" src="<?= $meal['strMealThumb']; ?>" alt="product image" />
                 </a>
                 <div class="px-5 py-5">
                     <a href="#">
-                        <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
+                        <h5 class="text-xl font-semibold tracking-tight ">
                             <?= $meal['strMeal']; ?>
                         </h5>
                     </a>
